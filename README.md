@@ -224,74 +224,67 @@ algoritmo "projetoMod1"
     fimprocedimento
     
     procedimento caso14
-    //Adicionar dados
-    //procedimento
-    
-    var
-    guardador: inteiro
-    
-    inicio
-    para cont de 10 ate 1 faca passo -1
-    se (dadosvetor[cont].id=0) entao
-    
-    guardador<-cont
-    
-    fimse
-    se (guardador = 0) entao
-    escreval ("Espaço insuficiente na memória!")
-    senao
-    escreval ("Digite o nome: ")
-    leia(dadosvetor[guardador].nome)
-    escreval ("Digite o CPF: ")
-    leia (dadosvetor[guardador].cpf)
-    escreval ("Digite a cidade: ")
-    leia (dadosvetor[guardador].cidade)
-    escreval ("Digite o estado: ")
-    leia (dadosvetor[guardador].estado)
-    escreval ("Valores inseridos com sucesso!")
-    
-    fimse
-    fimpara
-    
-    
+        //Adicionar dados
+        
+        var
+        guardador: inteiro
+        
+        inicio
+        para cont de 10 ate 1 faca passo -1
+            se (dadosvetor[cont].id=0) entao
+                guardador<-cont
+            fimse
+            se (guardador = 0) entao
+                escreval ("Espaço insuficiente na memória!")
+            senao
+                escreval ("Digite o nome: ")
+                leia(dadosvetor[guardador].nome)
+                escreval ("Digite o CPF: ")
+                leia (dadosvetor[guardador].cpf)
+                escreval ("Digite a cidade: ")
+                leia (dadosvetor[guardador].cidade)
+                escreval ("Digite o estado: ")
+                leia (dadosvetor[guardador].estado)
+                escreval ("Valores inseridos com sucesso!")
+            fimse
+        fimpara
     fimprocedimento
     
     procedimento caso15
     // Apagar Dados
-    //procedimento
-    
     var
-    perg2, ind: inteiro
+       perg2, ind: inteiro
     
-    inicio
-    // Seção de Comandos
-    escreva ("Digite o número de identificação: ")
-    leia (ind)
-    escreval(ind)
-    escreval (" ")
-    //pergunta se oadm deseja realmente apagar
-    repita
-    escreval ("Deseja realmente apagar esses dados? 1- Sim, 2- Não")
-    //estrutura de repetição usada para repetir se não for digitado nenhum dos dois números
-    leia(perg2)
-    ate (perg2=1) ou (perg2=2)
-    se (perg2=1) entao
-    //para zerar a posição apagada
-    dadosvetor[ind].id<- 0
-    dadosvetor[ind].nome<- 0
-    dadosvetor[ind].cpf<- 0
-    dadosvetor[ind].cidade<- 0
-    dadosvetor[ind].estado<- 0
-    limpatela
-    escreval ("Apagado com sucesso!")
-    senao
-    //Para aparecer se ele digitar não...
-    escreval ("Cancelado!")
-    fimse
-    
+    inicio   
+        escreva ("Digite o número de identificação: ")
+        leia (ind)
+        escreval(ind)
+        escreval (" ")
+        //pergunta se o adm deseja realmente apagar
+        repita
+            escreval ("Deseja realmente apagar esses dados? 1- Sim, 2- Não")
+            //estrutura de repetição usada para repetir se não for digitado nenhum dos dois números
+            leia(perg2)
+        ate (perg2=1) ou (perg2=2)
+        se (perg2=1) entao
+            //para zerar a posição apagada
+            dadosvetor[ind].id<- 0
+            dadosvetor[ind].nome<- 0
+            dadosvetor[ind].cpf<- 0
+            dadosvetor[ind].cidade<- 0
+            dadosvetor[ind].estado<- 0
+            limpatela
+            escreval ("Apagado com sucesso!")
+        senao
+            //Para aparecer se ele digitar não...
+            escreval ("Cancelado!")
+        fimse
     fimprocedimento
-    
+
+
+
     var
+
     senha,login:caractere
     perg4, perg3, perg1, cont, tipousuario: inteiro
     
