@@ -9,15 +9,15 @@
 
 ````
 algoritmo "projetoMod1"
-    //programa principal
     
     tipo
+    //Registro do login e senha
     loginsenha=registro
         loginreg: caractere
         senhareg: caractere
     fimregistro
 
-    //Registro do login e senha
+    //Registros reverente a os dados
     listadedados=registro
         id: inteiro
         nome: caractere
@@ -26,10 +26,8 @@ algoritmo "projetoMod1"
         estado: caractere
     fimregistro
 
-    //Registros reverente a os dados
-
-    procedimento addloginssenhas
     //procedimento que carrega o vetor de login
+    procedimento addloginssenhas
 
     inicio
         cont<-1
@@ -43,12 +41,12 @@ algoritmo "projetoMod1"
         loginvetor [cont].senhareg<-"E654321R"
         
         cont<-0
-        //para se for usar de novo ele está zerado
-        
+        //para se for usar de novo ele está zerado   
     fimprocedimento
-    
-    procedimento addnomes
+
     //procedimento que carrega os dados
+    procedimento addnomes
+    
     inicio
         cont<-1
         dadosvetor[cont].id<- 1
@@ -98,40 +96,39 @@ algoritmo "projetoMod1"
     procedimento caso11
     inicio
     //caso o vetor tiver valor zero não será exibido
-    
         para cont de 1 ate 10 faca
-        //exibir o id
-        se (dadosvetor[cont].id<>0) entao
-        escreva (dadosvetor[cont].id, " - ")
-        fimse
+            //exibir o id
+            se (dadosvetor[cont].id<>0) entao
+                escreva (dadosvetor[cont].id, " - ")
+            fimse
         
-        //exibir o nome ou nada se não tiver
-        se (dadosvetor[cont].nome<>0) entao
-        escreva( dadosvetor[cont].nome, " - ")
-        senao
-        escreva(" ")
-        fimse
+            //exibir o nome ou nada se não tiver
+            se (dadosvetor[cont].nome<>0) entao
+                escreva( dadosvetor[cont].nome, " - ")
+            senao
+                escreva(" ")
+            fimse
         
-        //exibir cpf ou nada se não tiver
-        se (dadosvetor[cont].cpf<>0) entao
-        escreva( dadosvetor[cont].cpf, " - ")
-        senao
-        escreva(" ")
-        fimse
-        
-        //exibir cidade ou nada se não tiver
-        se (dadosvetor[cont].cidade<>0) entao
-        escreva(dadosvetor[cont].cidade, " - ")
-        senao
-        escreva(" ")
-        fimse
-        
-        //exibir estado ou nada se não tiver
-        se (dadosvetor[cont].estado<>0) entao
-        escreval(dadosvetor[cont].estado)
-        senao
-        escreval (" ")
-        fimse
+            //exibir cpf ou nada se não tiver
+            se (dadosvetor[cont].cpf<>0) entao
+                escreva( dadosvetor[cont].cpf, " - ")
+            senao
+                escreva(" ")
+            fimse
+            
+            //exibir cidade ou nada se não tiver
+            se (dadosvetor[cont].cidade<>0) entao
+                escreva(dadosvetor[cont].cidade, " - ")
+            senao
+                escreva(" ")
+            fimse
+            
+            //exibir estado ou nada se não tiver
+            se (dadosvetor[cont].estado<>0) entao
+                escreval(dadosvetor[cont].estado)
+            senao
+                escreval (" ")
+            fimse
         
         fimpara
         cont<-0
@@ -145,16 +142,16 @@ algoritmo "projetoMod1"
         leia (numid)
         avali<-0
         para cont de 1 ate 10 faca
-        se (numid = dadosvetor[cont].id) entao
-        avali<-1
-        // para não aparecer a mensagem de "não encontrado"
-        escreval (dadosvetor[cont].id , dadosvetor[cont].nome , dadosvetor[cont].cpf , dadosvetor[cont].cidade , dadosvetor[cont]. estado)
-        fimse
-        
+            se (numid = dadosvetor[cont].id) entao
+                avali<-1
+                // para não aparecer a mensagem de "não encontrado"
+                escreval (dadosvetor[cont].id , dadosvetor[cont].nome , dadosvetor[cont].cpf , dadosvetor[cont].cidade , dadosvetor[cont]. estado)
+            fimse
         fimpara
+
         //um "se" para se não tiver mostrado nenhum valor para apreender esse mensagem...
         se (avali=0) entao
-        escreval ("Valor não encontrado...")
+            escreval ("Valor não encontrado...")
         fimse
         cont<-0
     fimprocedimento
@@ -169,58 +166,58 @@ algoritmo "projetoMod1"
         escreva("Digite o número de identificação: ")
         leia (numid)
         para cont de 1 ate 10 faca
-        se (numid=dadosvetor[cont].id) entao
-        escreval("identificador - nome - cpf - cidade - estado ")
-        escreval(dadosvetor[cont].id, dadosvetor[cont].nome, dadosvetor[cont].cpf, dadosvetor[cont].cidade, dadosvetor[cont].estado)
-        escreval (" ")
-        escreval ("Qual campo deseja alterar?")
-        escreval ("1- Nome")
-        escreval ("2- CPF")
-        escreval ("3- Cidade")
-        escreval ("4- Estado")
-        escreval (" ")
-        //estrutura de repetição para repitir se o valor digitado não corresponder a nenhuma das opções
-        enquanto (perg2<1) ou (perg2>4) faca
-        escreva ("Digite o número a opção desejada: ")
-        leia (perg2)
-        escolha perg2
-        // "escolha" para escolher qual campo vai ser alterado
-        caso 1
-        //campo nome
-            escreva ("Digite o novo nome: ")
-            leia(altera)
-            dadosvetor[cont].nome<-altera
-            escreval ("Valor alterado com sucesso!")
-        
-        caso 2
-        //campo cpf
-            escreva ("Digite o novo CPF: ")
-            leia(alteraint)
-            dadosvetor[cont].cpf<-alteraint
-            escreval ("Valor Alterado com sucesso!")
-        
-        caso 3
-        //campo cidade
-            escreva ("Digite o nome da nova cidade: ")
-            leia(altera)
-            dadosvetor[cont].cidade<-altera
-            escreval ("Valor Alterado com sucesso!")
-        
-        caso 4
-        //campo estado
-            escreva ("Digite o novo estado: ")
-            leia(altera)
-            dadosvetor[cont].estado<-altera
-            escreval ("Valor Alterado com sucesso!")
-        
-        outrocaso
-            escreval ("Valor inválido! Digite novamente...")
-        fimescolha
-        fimenquanto
-        
-        fimse
-        fimpara
-        cont<-0
+            se (numid=dadosvetor[cont].id) entao
+                escreval("identificador - nome - cpf - cidade - estado ")
+                escreval(dadosvetor[cont].id, dadosvetor[cont].nome, dadosvetor[cont].cpf, dadosvetor[cont].cidade, dadosvetor[cont].estado)
+                escreval (" ")
+                escreval ("Qual campo deseja alterar?")
+                escreval ("1- Nome")
+                escreval ("2- CPF")
+                escreval ("3- Cidade")
+                escreval ("4- Estado")
+                escreval (" ")
+                //estrutura de repetição para repitir se o valor digitado não corresponder a nenhuma das opções
+                enquanto (perg2<1) ou (perg2>4) faca
+                    escreva ("Digite o número a opção desejada: ")
+                    leia (perg2)
+
+                    // "escolha" para escolher qual campo vai ser alterado
+                    escolha perg2
+                        caso 1
+                        //campo nome
+                            escreva ("Digite o novo nome: ")
+                            leia(altera)
+                            dadosvetor[cont].nome<-altera
+                            escreval ("Valor alterado com sucesso!")
+                        
+                        caso 2
+                        //campo cpf
+                            escreva ("Digite o novo CPF: ")
+                            leia(alteraint)
+                            dadosvetor[cont].cpf<-alteraint
+                            escreval ("Valor Alterado com sucesso!")
+                        
+                        caso 3
+                        //campo cidade
+                            escreva ("Digite o nome da nova cidade: ")
+                            leia(altera)
+                            dadosvetor[cont].cidade<-altera
+                            escreval ("Valor Alterado com sucesso!")
+                        
+                        caso 4
+                        //campo estado
+                            escreva ("Digite o novo estado: ")
+                            leia(altera)
+                            dadosvetor[cont].estado<-altera
+                            escreval ("Valor Alterado com sucesso!")
+                        
+                        outrocaso
+                            escreval ("Valor inválido! Digite novamente...")
+                        fimescolha
+                    fimenquanto
+                fimse
+            fimpara
+            cont<-0
     fimprocedimento
     
     procedimento caso14
@@ -280,206 +277,203 @@ algoritmo "projetoMod1"
             escreval ("Cancelado!")
         fimse
     fimprocedimento
-
-
-
+````
+##### Aqui termina a sessão dos procedimentos e começar o codigo principal propriamente dito:
+````
     var
 
-    senha,login:caractere
-    perg4, perg3, perg1, cont, tipousuario: inteiro
-    
-    loginvetor: vetor [1..2] de loginsenha
-    //vetor que guarda logins e senhas
-    
-    dadosvetor: vetor [1..10] de listadedados
-    //vetor que guarda os dados
-    
-    
+        senha,login:caractere
+        perg4, perg3, perg1, cont, tipousuario: inteiro
+        
+        loginvetor: vetor [1..2] de loginsenha
+        //vetor que guarda logins e senhas
+        
+        dadosvetor: vetor [1..10] de listadedados
+        //vetor que guarda os dados
     inicio
-    // Seção de procedimentos de carregamento de dados
-    addloginssenhas
-    addnomes
-    //Fim dos carregamentos de dados
-    repita
-    //"repita" acima usado para recomeçar o programa
-    
-    //"repita" abaixo usado para repetir a pagina de login se for incorreto
-    repita
-    //estrutura para repitir caso login e senha estejam errados
-    //Seção de login
-    escreval("-------------------------------------------")
-    escreval(" ")
-    escreval("Bem vindo ao BDVisualg!")
-    escreval(" ")
-    escreval("-------------------------------------------")
-    escreval(" ")
-    escreval("Escreva o seu login")
-    escreva("login: ")
-    leia(login)
-    escreval(" ")
-    escreval("Digite a senha")
-    escreva ("Senha: ")
-    leia(senha)
-    //Fim Seção de Login
-    
-    //Teste de Login e Senha
-    Se (login=loginvetor[1].loginreg) e (senha=loginvetor[1].senhareg) entao
-    tipousuario<- 1
-    //1 = adm
-    
-    senao
-    se (login= loginvetor[2].senhareg ) e (senha=loginvetor[2].senhareg ) entao
-    tipousuario<-2
-    //2 = estagiário
-    
-    senao
-    tipousuario<-3
-    //3 = incorreto e repete
-    
-    escreval("Login ou senha incorretos! Tente novamente.")
-    escreval (" ")
-    escreval (" ")
-    
-    fimse
-    fimse
-    limpatela
-    ate (tipousuario=1) ou (tipousuario=2)
-    //seção pós login
-    
-    escolha tipousuario
-    //Se tipousuario for =1 vai ser conta tipo adm, e se for =2 vai ser conta tipo estagiário
-    
-    caso 1
-    //enquanto para voltar ao menu adm
-    repita
-    limpatela
-    escreval("-------------------------------------------")
-    escreval(" ")
-    escreval("BDVisualg!")
-    escreval(" ")
-    escreval("-------------------------------------------")
-    escreval("Bem-vindo Administrador")
-    escreval("-------------------------------------------")
-    escreval("-------------------------------------------")
-    
-    
-    escreval ("Digite a numeração de acordo com a sua escolha...")
-    escreval (" ")
-    escreval("Menu:")
-    escreval("1- Visualizar tudo")
-    escreval ("2- Visualizar por número de identificação")
-    escreval ("3- Alterar Dados Buncando pelo número de identificação")
-    escreval ("4- Adicionar Dados")
-    escreval ("5- Apagar")
-    escreval (" ")
-    escreva ("Digite o número correspondente a opção escolhida: ")
-    leia (perg1)
-    escolha perg1
-    //um escolha dentro de adm
-    caso 1
-    //Visualizar tudo
-    caso11
-    
-    caso 2
-    // Visualizar por número de identificação
-    caso12
-    
-    caso 3
-    // Alterar buscando pelo número de identificação
-    caso13
-    
-    caso 4
-    // Adicionar Dados
-    caso14
-    
-    caso 5
-    //Apagar
-    caso15
-    
-    outrocaso
-    escreval ("Valor inválido! Digite novamente...")
-    escreva ("Digite o número correspondente a opção escolhida: ")
-    
-    fimescolha
-    
-    
-    escreval("Deseja Sair da conta? 1- Sim , 2 - Não")
-    //"enquanto" para repetir o leia da pergunta acima
-    repita
-    leia(perg3)
-    se (perg3<>1) ou (perg3<>2) entao
-    escreval ("Valor inválido!, Digite 1 para Sim, e 2 para Não")
-    //estrutura para aparecer a mensagem de erro
-    fimse
-    ate (perg3=1) ou (perg3=2)
-    
-    ate (perg3=2)
-    limpatela
-    
-    caso 2
-    //"enquanto" para voltar ao menu estagiário
-    enquanto (perg3<>1) faca
-    limpatela
-    escreval("-------------------------------------------")
-    escreval(" ")
-    escreval("BDVisualg!")
-    escreval(" ")
-    escreval("-------------------------------------------")
-    escreval("Bem-vindo Estagiário")
-    escreval("-------------------------------------------")
-    escreval("-------------------------------------------")
-    
-    
-    escreval ("Digite a numeração de acordo com a sua escolha...")
-    escreval (" ")
-    escreval("Menu:")
-    escreval("1- Visualizar tudo")
-    escreval ("2- Visualizar por número de identificação")
-    escreval (" ")
-    escreva ("Digite o número correspondente a opção escolhida: ")
-    repita
-    leia(perg1)
-    escolha perg1
-    caso 1
-    //Visualizar tudo
-    caso11
-    
-    caso 2
-    // Visualizar por número de identificação
-    caso12
-    
-    outrocaso
-    escreval ("Valor inválido! Digite novamente...")
-    escreva ("Digite o número correspondente a opção escolhida: ")
-    fimescolha
-    ate (perg1=1) ou (perg1=2)
-    
-    escreval("Deseja Sair da conta? 1- Sim , 2 - Não")
-    //"enquanto" para repetir o leia da pergunta acima
-    repita
-    leia(perg3)
-    se (perg3<>1) ou (perg3<>2) entao
-    escreval ("Valor inválido!, Digite 1 para Sim, e 2 para Não")
-    //estrutura para aparecer a mensagem de erro
-    fimse
-    ate (perg3=1) ou (perg3=2)
-    
-    fimenquanto
-    limpatela
-    
-    outrocaso
-    fimescolha
-    
-    escreval("Finalizar o programa - Digite 1, Fazer Login novamente - Digite 2")
-    //enquanto para repitir se não for digitado nenhum dos dos números
-    repita
-    leia (perg4)
-    se (perg4<>1) ou (perg4<>2) entao
-    escreval ("Valor inválido!, Digite ou 1 ou 2.")
-    //para aparecer mensagem de erro
-    fimse
-    ate (perg4=1) ou (perg4=2)
-    ate (perg4=1)
+        // Seção de procedimentos de carregamento de dados
+            addloginssenhas
+            addnomes
+        //Fim dos carregamentos de dados
+
+        //"repita" acima usado para recomeçar o programa
+        repita
+            //"repita" abaixo usado para repetir a pagina de login se for incorreto
+            repita
+                //estrutura para repitir caso login e senha estejam errados
+                //Seção de login
+                    escreval("-------------------------------------------")
+                    escreval(" ")
+                    escreval("Bem vindo ao BDVisualg!")
+                    escreval(" ")
+                    escreval("-------------------------------------------")
+                    escreval(" ")
+                    escreval("Escreva o seu login")
+                    escreva("login: ")
+                    leia(login)
+                    escreval(" ")
+                    escreval("Digite a senha")
+                    escreva ("Senha: ")
+                    leia(senha)
+                //Fim Seção de Login
+                
+                //Teste de Login e Senha
+                Se (login=loginvetor[1].loginreg) e (senha=loginvetor[1].senhareg) entao
+                    tipousuario<- 1
+                    //1 = adm
+                senao
+                    se (login= loginvetor[2].senhareg ) e (senha=loginvetor[2].senhareg ) entao
+                        //2 = estagiário
+                        tipousuario<-2
+                        
+                    senao
+                        //3 = incorreto e repete
+                        tipousuario<-3
+                        
+                        escreval("Login ou senha incorretos! Tente novamente.")
+                        escreval (" ")
+                        escreval (" ")
+                    
+                    fimse
+                fimse
+                limpatela
+            ate (tipousuario=1) ou (tipousuario=2)
+            //seção pós login
+                
+                escolha tipousuario
+                //Se tipousuario for =1 vai ser conta tipo adm, e se for =2 vai ser conta tipo estagiário
+                
+                caso 1
+                //enquanto para voltar ao menu adm
+                repita
+                limpatela
+                escreval("-------------------------------------------")
+                escreval(" ")
+                escreval("BDVisualg!")
+                escreval(" ")
+                escreval("-------------------------------------------")
+                escreval("Bem-vindo Administrador")
+                escreval("-------------------------------------------")
+                escreval("-------------------------------------------")
+                
+                
+                escreval ("Digite a numeração de acordo com a sua escolha...")
+                escreval (" ")
+                escreval("Menu:")
+                escreval("1- Visualizar tudo")
+                escreval ("2- Visualizar por número de identificação")
+                escreval ("3- Alterar Dados Buncando pelo número de identificação")
+                escreval ("4- Adicionar Dados")
+                escreval ("5- Apagar")
+                escreval (" ")
+                escreva ("Digite o número correspondente a opção escolhida: ")
+                leia (perg1)
+                escolha perg1
+                //um escolha dentro de adm
+                caso 1
+                //Visualizar tudo
+                caso11
+                
+                caso 2
+                // Visualizar por número de identificação
+                caso12
+                
+                caso 3
+                // Alterar buscando pelo número de identificação
+                caso13
+                
+                caso 4
+                // Adicionar Dados
+                caso14
+                
+                caso 5
+                //Apagar
+                caso15
+                
+                outrocaso
+                escreval ("Valor inválido! Digite novamente...")
+                escreva ("Digite o número correspondente a opção escolhida: ")
+                
+                fimescolha
+                
+                
+                escreval("Deseja Sair da conta? 1- Sim , 2 - Não")
+                //"enquanto" para repetir o leia da pergunta acima
+                repita
+                leia(perg3)
+                se (perg3<>1) ou (perg3<>2) entao
+                escreval ("Valor inválido!, Digite 1 para Sim, e 2 para Não")
+                //estrutura para aparecer a mensagem de erro
+                fimse
+                ate (perg3=1) ou (perg3=2)
+                
+                ate (perg3=2)
+                limpatela
+                
+                caso 2
+                //"enquanto" para voltar ao menu estagiário
+                enquanto (perg3<>1) faca
+                limpatela
+                escreval("-------------------------------------------")
+                escreval(" ")
+                escreval("BDVisualg!")
+                escreval(" ")
+                escreval("-------------------------------------------")
+                escreval("Bem-vindo Estagiário")
+                escreval("-------------------------------------------")
+                escreval("-------------------------------------------")
+                
+                
+                escreval ("Digite a numeração de acordo com a sua escolha...")
+                escreval (" ")
+                escreval("Menu:")
+                escreval("1- Visualizar tudo")
+                escreval ("2- Visualizar por número de identificação")
+                escreval (" ")
+                escreva ("Digite o número correspondente a opção escolhida: ")
+                repita
+                leia(perg1)
+                escolha perg1
+                caso 1
+                //Visualizar tudo
+                caso11
+                
+                caso 2
+                // Visualizar por número de identificação
+                caso12
+                
+                outrocaso
+                escreval ("Valor inválido! Digite novamente...")
+                escreva ("Digite o número correspondente a opção escolhida: ")
+                fimescolha
+                ate (perg1=1) ou (perg1=2)
+                
+                escreval("Deseja Sair da conta? 1- Sim , 2 - Não")
+                //"enquanto" para repetir o leia da pergunta acima
+                repita
+                leia(perg3)
+                se (perg3<>1) ou (perg3<>2) entao
+                escreval ("Valor inválido!, Digite 1 para Sim, e 2 para Não")
+                //estrutura para aparecer a mensagem de erro
+                fimse
+                ate (perg3=1) ou (perg3=2)
+                
+                fimenquanto
+                limpatela
+                
+                outrocaso
+                fimescolha
+                
+                escreval("Finalizar o programa - Digite 1, Fazer Login novamente - Digite 2")
+                //enquanto para repitir se não for digitado nenhum dos dos números
+                repita
+                leia (perg4)
+                se (perg4<>1) ou (perg4<>2) entao
+                escreval ("Valor inválido!, Digite ou 1 ou 2.")
+                //para aparecer mensagem de erro
+                fimse
+            ate (perg4=1) ou (perg4=2)
+        ate (perg4=1)
 
 fimalgoritmo
 ````
